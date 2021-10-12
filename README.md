@@ -1,5 +1,5 @@
 # reimagined-mod
-files for a meh sonic 06 mod
+files for a meh sonic 06 mod. it's a lighting mod, but there are some model changes and additions. yes im aware the thumbnail isn't evenly spaced
 
 how to install:
 take the "Reimagined Lighting" folder outside of the "reimagined-mod-main" folder, and place it inside your sonic 06 mod folder. save, install content, then launch 06
