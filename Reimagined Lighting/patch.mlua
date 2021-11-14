@@ -1,0 +1,23 @@
+--[Patch]--
+Title("Reimagined Lighting")
+Author("rom")
+Platform("Xbox 360")
+
+--[Functions]--
+--Change shadow resolution. 1024 medium, 512 low, 256 potato. It can be whatever size you'd like, however it's maxed out at 1024 (presumably due to memory limitations).
+BeginBlock("core\archives\cache.arc")
+ParameterAdd("core\scripts\render\render_utility.lub"|"CSMTextureSize"|"1024")
+EndBlock("core\archives\cache.arc")
+
+--Change shadow map size. Normally is the same as the shadow resolution.
+BeginBlock("core\archives\scripts.arc")
+ParameterEdit("core\scripts\stage\shadowmap.lub"|"ShadowMapResolution"|"1024")
+ParameterAdd("core\scripts\stage\shadowmap.lub"|"ShadowMap"|"{ BaseSize = ShadowMapResolution, CenterOffset = {0, 0, ShadowMapResolution * 0.5} }")
+EndBlock("core\archives\scripts.arc")
+
+
+--Everything past this point should be left alone
+
+--Change main menu lighting
+DecryptExecutable()
+WriteBytes(Executable|0x3659C|"73 63 72 69 70 74 73 2F 73 74 61 67 65 2F 73 63 65 6E 65 5F 64 65 66 61 75 6C 74 2E 6C 75 61 00 00")
